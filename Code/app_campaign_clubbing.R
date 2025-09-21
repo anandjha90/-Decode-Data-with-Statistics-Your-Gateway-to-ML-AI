@@ -1,0 +1,6 @@
+library(data.table)
+setwd("/Users/anandjha/Desktop/APP report raw files (Anand Jha)/Campaign")
+files <- list.files(pattern = ".csv")
+temp <- lapply(files,fread,sep=",")
+data <- rbindlist( temp )
+write.csv(data,file = "campaign_combined.csv", row.names = FALSE)
